@@ -1,6 +1,7 @@
 package com.library.dao;
 
 import com.library.model.Student;
+import com.library.util.DbConnection;  // Assuming you have a DbConnection class to get the DB connection
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,9 @@ public class StudentDAO {
     private final Connection connection;
     private static final Logger LOGGER = Logger.getLogger(StudentDAO.class.getName());
 
-    public StudentDAO(Connection connection) {
-        this.connection = connection;
+    // Constructor initializes the connection
+    public StudentDAO() throws SQLException {
+        this.connection = DbConnection.getConnection();  // Assuming you have a method to get DB connection
     }
 
     public void addStudent(Student student) {
@@ -68,13 +70,30 @@ public class StudentDAO {
         }
     }
 
-    public void deleteStudent(int id) {
+    public boolean deleteStudent(int id) {
         String query = "DELETE FROM students WHERE id = ?";
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
+        try (Connection conn = DbConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, id);
+            int rowsAffected = stmt.executeUpdate();
+
+            return rowsAffected > 0; // Return true if one or more rows were deleted
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Erreur lors de la suppression de l'étudiant", e);
+            System.err.println("Error while deleting student: " + e.getMessage());
+            return false; // Return false if there was an error
         }
     }
+    // Méthode pour supprimer tous les étudiants
+    public boolean deleteAllStudents() {
+        String sql = "DELETE FROM students";
+        try (Statement statement = connection.createStatement()) {
+            int rowsAffected = statement.executeUpdate(sql);
+            return rowsAffected > 0;  // Retourne true si des lignes ont été supprimées
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

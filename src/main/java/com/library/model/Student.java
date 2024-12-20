@@ -35,4 +35,14 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
+    // Méthode pour récupérer l'objet actuel
+    public Student get() {
+        return this;
+    }
+
+    // Méthode pour vérifier si l'objet est "vide"
+    public boolean isEmpty() {
+        return (this.name == null || this.name.isEmpty()) && this.id == 0;
+    }
 }

@@ -1,11 +1,9 @@
 
 R
-java:S2629%"7Use the built-in formatting to construct this argument.(—‚•êÿÿÿÿÿ
+java:S2629'"7Use the built-in formatting to construct this argument.(—‚•êÿÿÿÿÿ
 f
-java:S3457%"KFormat specifiers or lambda should be used instead of string concatenation.(—‚•êÿÿÿÿÿ
+java:S3457'"KFormat specifiers or lambda should be used instead of string concatenation.(—‚•êÿÿÿÿÿ
 <
-java:S3457)"!Single quote "'" must be escaped.(ÝµÐüÿÿÿÿ
+java:S3457+"!Single quote "'" must be escaped.(ÝµÐüÿÿÿÿ
 <
-java:S3457C"!Single quote "'" must be escaped.(ŸšÕŠýÿÿÿÿ
-7
-java:S3457M"!Single quote "'" must be escaped.(úä›Ñ
+java:S3457E"!Single quote "'" must be escaped.(ŸšÕŠýÿÿÿÿ
