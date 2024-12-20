@@ -33,16 +33,5 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            emailext to: 'elamineibtissam12@gmail.com',
-                subject: 'Build Success',
-                body: 'Le build a été complété avec succès.'
-        }
-        failure {
-            emailext to: 'elamineibtissam12@gmail.com',
-                subject: 'Build Failed',
-                body: 'Le build a échoué.'
-        }
-    }
+
 }
