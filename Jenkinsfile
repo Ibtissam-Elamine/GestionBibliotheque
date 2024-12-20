@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/votre-depot/GestionBibliotheque.git'
+                git credentialsId: 'github-pat', url: 'https://github.com/Ibtissam-Elamine/GestionBibliotheque.git'
+
             }
         }
         stage('Build') {
