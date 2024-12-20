@@ -1,7 +1,5 @@
 
-V
-java:S1128"4Remove this unused import 'com.library.dao.BookDAO'.(’‚öüÿÿÿÿ8³¯¢¾2
-T
-java:S1128"7Remove this unused import 'com.library.dao.StudentDAO'.(èâÆú8¶¯¢¾2
-S
-java:S1128"6Remove this unused import 'com.library.model.Student'.(¥üªÆ8·¯¢¾2
+H
+java:S1068"+Remove this unused "bookDAO" private field.(¯¶–¬8”Íé³¾2
+P
+java:S1068".Remove this unused "studentDAO" private field.(şÃ‘•ûÿÿÿÿ8”Íé³¾2
